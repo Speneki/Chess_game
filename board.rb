@@ -1,5 +1,7 @@
 require_relative 'piece'
 require 'byebug'
+class NoPieceThere < StandardError; end
+class NotYourPiece < StandardError; end
 
 class Board 
   attr_accessor :board
@@ -30,15 +32,14 @@ class Board
       print "#{i}"
       row.each do |col|
         print " #{col.value}"
-  
       end
       puts
     end
   end
 
-  def move_piece(start_pos, end_pos)
-    # if piece.value != 0 && piece.player == current_player
-  end 
+  def valid_move?
+    return true
+  end
 
   def [](pos)
     row, col = pos
@@ -51,4 +52,3 @@ class Board
   end
 
 end 
-
